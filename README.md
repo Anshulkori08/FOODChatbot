@@ -26,57 +26,50 @@ Database: MySQL with stored procedures
 Tools: Ngrok for development tunneling
 
 # Project Structure
+```text
 FOODchatbot/
+├── Backend/                 # Python + Node.js backends
+│   ├── main.py             # FastAPI application
+│   ├── server.js           # Express.js application
+│   ├── db_helper.py        # Database operations
+│   └── requirements.txt    # Python dependencies
+├── Frontend/               # Customer website
+│   ├── index.html          # Main interface
+│   └── menu images         # Menu visuals
+└── db/
+    └── koriji_eatery.sql   # Database schema
+```
+Clone & Setup
 
-├── Backend/           # Both Python and Node.js implementations
-
-├── Frontend/          # Customer-facing website
-
-├── db/               # Database schema and data
-
-└── External Libraries/
-
-# Clone & Setup
-
-git clone https://github.com/Anshulkori08/FOODChatbot.git
-
+```bash
+git clone https://github.com/your-username/FOODchatbot.git
 cd FOODchatbot
+```
+Database Setup
 
-# Database Setup
-
+```bash
 mysql -u root -p < db/koriji_eatery.sql
-
-# Install Dependencies
-
-bash
-
-Python :
-
+Install Dependencies
+```
+```bash
+# Python
 pip install -r Backend/requirements.txt
 
- Node.js : 
- 
+# Node.js
 cd Backend
-
 npm install
-
-# Run Application
-
-bash
-
-Python backend : 
-
+Run Application
+```
+```bash
+#Python backend
 uvicorn main:app --reload
 
-Node.js backend :
-
+#Node.js backend
 npm start
 
-Frontend (separate terminal) :
-
+#Frontend 
 python -m http.server 8000
-
-
+```
 # 📞 Contact
 Developer: Anshul Kori 
 
