@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Koriji Food Delivery</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 90%;
+            margin: auto;
+            text-align: center;
+        }
+
+        header {
+            background: #ff9800;
+            padding: 10px 0;
+        }
+
+        header h1 {
+            color: white;
+            margin: 0;
+        }
+
+        nav a {
+            margin: 0 10px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .banner {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .menu-row {
+            margin: 20px 0;
+        }
+
+        .menu-img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+        }
+
+        .contact-info p {
+            margin: 8px 0;
+        }
+
+        form {
+            margin-top: 20px;
+            text-align: left;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        form label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        form input, form textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        form button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background: #ff9800;
+            border: none;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        form button:hover {
+            background: #e68900;
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Koriji Fresh & Delicious</h1>
+            <nav>
+                <a href="#home">Home</a>
+                <a href="#menu">Menu</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Home Section -->
+    <section id="home">
+        <div class="container">
+            <h2>Welcome to Koriji</h2>
+            <img src="banner.jpg" alt="Food Banner" class="banner">
+            <p>Spicing Up Your Life with a Taste of India!</p>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu">
+        <div class="container">
+            <h2>Our Menu</h2>
+
+            <!-- First Menu Row -->
+            <div class="menu-row">
+                <img src="menu1.jpg" alt="Menu Page 1" class="menu-img">
+            </div>
+
+            <!-- Second Menu Row -->
+            <div class="menu-row">
+                <img src="menu2.jpg" alt="Menu Page 2" class="menu-img">
+            </div>
+
+            <!-- Third Menu Row -->
+            <div class="menu-row">
+                <img src="menu3.jpg" alt="Menu Page 3" class="menu-img">
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2>About Us</h2>
+            <p>We deliver fresh, hot, and tasty food right to your doorstep with love and care.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+
+            <!-- Contact details -->
+            <div class="contact-info">
+                <p><strong>Email:</strong> <a href="mailto:anshulkori500@gmail.com">anshulkori500@gmail.com</a></p>
+                <p><strong>Phone:</strong> <a href="tel:+918878653232">+91 88786 53232</a></p>
+                <p><strong>Address:</strong> Jhansi, Uttar Pradesh, India</p>
+            </div>
+
+            <!-- Contact form -->
+            <form id="contactForm">
+                <label for="name">Name:</label>
+                <input type="text" id="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" required>
+
+                <label for="message">Message:</label>
+                <textarea id="message" required></textarea>
+
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Koriji Fresh & Delicious</p>
+        </div>
+    </footer>
+
+    <!-- Dialogflow Messenger -->
+    <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+    <df-messenger
+      chat-icon="https://i.postimg.cc/1tnwYch4/Whats-App-Image-2025-08-27-at-19-57-12.jpg"
+      intent="WELCOME"
+      chat-title="KORI-chatbot-for-Food-Delivery"
+      agent-id="920ce2b5-4e3d-421d-b0b9-2caab53fdbd1"
+      language-code="en"
+    ></df-messenger>
+
+    <!-- Contact Form Script -->
+    <script>
+    document.getElementById("contactForm").addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        let name = document.getElementById("name").value;
+        let email = document.getElementById("email").value;
+        let message = document.getElementById("message").value;
+
+        let submissions = JSON.parse(localStorage.getItem("submissions")) || [];
+        submissions.push({ name, email, message });
+        localStorage.setItem("submissions", JSON.stringify(submissions));
+
+        alert("Form submitted successfully!");
+        this.reset();
+    });
+    </script>
+</body>
+</html>
+

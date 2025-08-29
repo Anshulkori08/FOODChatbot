@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Koriji Admin - Submissions</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body { font-family: system-ui, Arial, sans-serif; margin: 20px; }
+    h1 { margin-bottom: 8px; }
+    .hint { color: #666; margin-bottom: 16px; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { border: 1px solid #ddd; padding: 10px; text-align: left; vertical-align: top; }
+    th { background: #f4f4f4; }
+    tr:hover { background: #fafafa; }
+    .time { white-space: nowrap; color: #555; }
+  </style>
+</head>
+<body>
+  <h1>Koriji Admin – Submissions</h1>
+  <div class="hint">This page is protected with Basic Auth. Use your admin username/password.</div>
+
+  <table id="tbl">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>When</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Message</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script>
+    async function loadData() {
+      const res = await fetch('/api/submissions');
+      const json = await res.json();
+      if (!json.ok) {
+        alert('Failed to load: ' + (json.error || 'unknown error'));
+        return;
+      }
+      const tbody = document.querySelector('#tbl tbody');
+      tbody.innerHTML = '';
+      json.data.forEach((row, idx) => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${idx + 1}</td>
+          <td class="time">${new Date(row.created_at).toLocaleString()}</td>
+          <td>${row.name}</td>
+          <td>${row.email}</td>
+          <td>${row.message}</td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+    loadData();
+  </script>
+</body>
+</html>

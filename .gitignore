@@ -1,0 +1,23 @@
+FOODchatbot/          ← Create .gitignore HERE (in this root folder)
+├── .gitignore        ← RIGHT HERE
+├── Backend/
+│   ├── admin.html
+│   ├── backend.env
+│   ├── db_helper.py
+│   ├── generic_helper.py
+│   ├── main.py
+│   ├── new_server.js
+│   ├── ngrok.exe
+│   ├── package.json
+│   ├── requirements.txt
+│   ├── server.js
+│   └── db/
+│       └── koriji_eatery.sql
+├── Frontend/
+│   ├── banner.jpg
+│   ├── index.html
+│   ├── menu1.jpg
+│   ├── menu2.jpg
+│   └── menu3.jpg
+└── External Libraries/
+
