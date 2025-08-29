@@ -1,8 +1,8 @@
-FOODchatbot - AI Food Ordering System
+# FOODchatbot - AI Food Ordering System
 
 AI-powered food ordering chatbot with dual backend support (Python/FastAPI and Node.js/Express) and modern web interface for seamless food ordering experiences.AI-powered food ordering chatbot with dual backend support (Python/FastAPI and Node.js/Express) and modern web interface for seamless food ordering experiences.
 
-Features
+# Features
 AI Chatbot: Dialogflow-integrated natural language ordering
 
 Dual Backend: FastAPI (Python) + Express.js (Node.js) options
@@ -16,57 +16,71 @@ MySQL Database: Robust data storage with stored procedures
 Responsive Design: Mobile-friendly customer interface
 
 
-Tech Stack
+# Tech Stack
 Frontend: HTML5, CSS3, Dialogflow Messenger
+
 Backend: FastAPI (Python) / Express.js (Node.js)
+
 Database: MySQL with stored procedures
+
 Tools: Ngrok for development tunneling
 
-Project Structure
+# Project Structure
 FOODchatbot/
+
 ├── Backend/           # Both Python and Node.js implementations
+
 ├── Frontend/          # Customer-facing website
+
 ├── db/               # Database schema and data
+
 └── External Libraries/
 
-Clone & Setup
+# Clone & Setup
 
-git clone https://github.com/your-username/FOODchatbot.git
+git clone https://github.com/Anshulkori08/FOODChatbot.git
+
 cd FOODchatbot
 
-Database Setup
+# Database Setup
+
 mysql -u root -p < db/koriji_eatery.sql
 
-Install Dependencies
+# Install Dependencies
 
 bash
-# Python
+
+Python :
+
 pip install -r Backend/requirements.txt
 
-# Node.js
+ Node.js : 
+ 
 cd Backend
+
 npm install
-Run Application
+
+# Run Application
 
 bash
-# Python backend
+
+Python backend : 
+
 uvicorn main:app --reload
 
-# Or Node.js backend
+Node.js backend :
+
 npm start
 
-# Frontend (separate terminal)
+Frontend (separate terminal) :
+
 python -m http.server 8000
 
-Configuration
-Update database credentials in backend.env
 
-Set Dialogflow agent ID in index.html
+# 📞 Contact
+Developer: Anshul Kori 
 
-Admin access: /admin (default: admin/password123)
+Email: anshulkori500@gmail.com 
 
-📞 Contact
-Developer: Anshul Kori
-Email: anshulkori500@gmail.com
 Phone: +91 88786 53232
 
