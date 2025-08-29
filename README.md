@@ -30,9 +30,43 @@ FOODchatbot/
 └── External Libraries/
 
 Clone & Setup
-[clone.sh](https://github.com/user-attachments/files/22051863/clone.sh)
+
 git clone https://github.com/your-username/FOODchatbot.git
 cd FOODchatbot
 
-Database Setup[Database Setup.sh](https://github.com/user-attachments/files/22051882/Database.Setup.sh)
+Database Setup
 mysql -u root -p < db/koriji_eatery.sql
+
+Install Dependencies
+
+bash
+# Python
+pip install -r Backend/requirements.txt
+
+# Node.js
+cd Backend
+npm install
+Run Application
+
+bash
+# Python backend
+uvicorn main:app --reload
+
+# Or Node.js backend
+npm start
+
+# Frontend (separate terminal)
+python -m http.server 8000
+
+Configuration
+Update database credentials in backend.env
+
+Set Dialogflow agent ID in index.html
+
+Admin access: /admin (default: admin/password123)
+
+📞 Contact
+Developer: Anshul Kori
+Email: anshulkori500@gmail.com
+Phone: +91 88786 53232
+
